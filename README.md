@@ -2,6 +2,7 @@
 ## Authors
 * **Fariz Wahyuzan Dwitilas** - *1906399511* - *A*
 
+=======
 ## Tutorial 2
 1. Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut setelah menjalankan program: http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
 Kebun berhasil ditambahkan karena semua request parameter terdapat valuenya.!
@@ -22,6 +23,7 @@ bukti screenshotmu.
 
 
 
+=======
 ## Tutorial 1
 ### What I have learned today
 (Masukkan pertanyaan yang diikuti jawaban di setiap nomor, contoh seperti dibawah. Anda
