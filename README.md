@@ -2,6 +2,28 @@
 ## Authors
 * **Fariz Wahyuzan Dwitilas** - *1906399511* - *A*
 
+=======
+## Tutorial 2
+1. Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut setelah menjalankan program: http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+Kebun berhasil ditambahkan karena semua request parameter terdapat valuenya.!
+
+2. Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat.
+Dependency injection. Cara kerjanya adalah Spring akan mencari class yang cocok dengan property pada applicationContext dan melakukan injection secara otomatis.
+
+3. Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut: http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+Terjadi error karena link di atas tidak memiliki parameter NoTelepon, sedangkan parameter NoTelepon adalah required = true.
+
+4. Jika Papa APAP ingin melihat Kebun Safari dengan nama Papa APAP, link apa yang harus diakses?
+localhost:8000/kebun-safari?id=1
+
+5.  Tambahkan 1 contoh Kebun Safari lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/, apa yang akan ditampilkan? Sertakan juga
+bukti screenshotmu.
+[SS1](https://user-images.githubusercontent.com/90312743/133470068-6a2ba0b5-ba9a-4830-9213-70f609a3c301.jpg)
+[SS2](https://user-images.githubusercontent.com/90312743/133470135-f46e3c75-64ba-4ce2-ae00-a63d83ff3fff.jpg)
+
+
+
+=======
 ## Tutorial 1
 ### What I have learned today
 (Masukkan pertanyaan yang diikuti jawaban di setiap nomor, contoh seperti dibawah. Anda
