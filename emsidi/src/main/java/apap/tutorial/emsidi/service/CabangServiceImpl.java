@@ -36,4 +36,12 @@ public class CabangServiceImpl implements CabangService {
         }
         return null;
     }
+
+    @Override
+    public List<CabangModel> findByOrderByNamaCabangAscList() { return cabangDb.findByOrderByNamaCabangAsc(); }
+
+    @Override
+    public void deleteCabang(CabangModel cabang) {
+        cabangDb.delete(cabang);
+    }
 }

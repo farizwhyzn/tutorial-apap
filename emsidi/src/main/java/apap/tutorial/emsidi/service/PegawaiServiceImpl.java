@@ -16,4 +16,15 @@ public class PegawaiServiceImpl implements PegawaiService {
 
     @Override
     public void addPegawai(PegawaiModel pegawai) { pegawaiDb.save(pegawai); }
+
+    public void updatePegawai(PegawaiModel pegawai) { pegawaiDb.save(pegawai); }
+
+    public PegawaiModel findByNoPegawai(Long noPegawai) {
+        PegawaiModel pegawai = pegawaiDb.getById(noPegawai);
+        return pegawai;
+    }
+
+    public void deletePegawai(PegawaiModel pegawai) {
+        pegawaiDb.delete(pegawai);
+    }
 }

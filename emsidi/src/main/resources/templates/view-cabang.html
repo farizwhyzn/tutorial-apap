@@ -20,12 +20,15 @@
                 <p th:text="'Nomor Telepon Cabang : ' + ${cabang.noTeleponCabang}"></p>
                 <p th:text="'Waktu Buka : ' + ${cabang.waktuBuka}"></p>
                 <p th:text="'Waktu Tutup : ' + ${cabang.waktuTutup}"></p>
+                <a class="btn btn-primary" th:href="@{/cabang/delete/} + ${cabang.noCabang}">Delete Cabang</a>
                 <div class="col">
                     <h6>Pegawai : </h6>
                     <div th:each="pegawai : ${listPegawai}">
                         <p th:text="'Nama : ' + ${pegawai.namaPegawai}"></p>
-                        <p th:if="${pegawai.jenisKelamin == 0}">Jenis Kelamin : Perempuan</p>
-                        <p th:if="${pegawai.jenisKelamin == 1}">Jenis Kelamin : Laki-laki</p>
+                        <p th:if="${pegawai.jenisKelamin} == 0">Jenis Kelamin : Perempuan</p>
+                        <p th:if="${pegawai.jenisKelamin} == 1">Jenis Kelamin : Laki-laki</p>
+                        <a class="btn btn-primary" th:href="@{/pegawai/update/} + ${pegawai.noPegawai}">Update Pegawai</a>
+                        <a class="btn btn-primary" th:href="@{/pegawai/delete/} + ${pegawai.noPegawai}">Delete Pegawai</a>
                         <hr>
                     </div>
                 </div>

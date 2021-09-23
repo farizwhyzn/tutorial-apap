@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalTime;
+
 @Controller
 public class PegawaiController {
     @Qualifier("pegawaiServiceImpl")
@@ -43,4 +45,52 @@ public class PegawaiController {
         model.addAttribute("namaPegawai", pegawai.getNamaPegawai());
         return "add-pegawai";
     }
+
+    @GetMapping("/pegawai/update/{noPegawai}")
+    public String updatePegawaiForm(
+            @PathVariable Long noPegawai,
+            Model model
+    ) {
+        PegawaiModel pegawai = pegawaiService.findByNoPegawai(noPegawai);
+        model.addAttribute("pegawai", pegawai);
+        model.addAttribute("noCabang", pegawai.getCabang().getNoCabang());
+        return "form-update-pegawai";
+    }
+
+    @PostMapping("/pegawai/update")
+    public String updatePegawaiSubmit(
+            @ModelAttribute PegawaiModel pegawai,
+            Model model
+    ) {
+        if (LocalTime.now().isAfter(pegawai.getCabang().getWaktuTutup())
+                || LocalTime.now().isBefore(pegawai.getCabang().getWaktuBuka())) {
+
+            pegawaiService.updatePegawai(pegawai);
+            model.addAttribute("noPegawai", pegawai.getNoPegawai());
+            return "update-pegawai";
+        }
+        else {
+            return "error-cabang-buka";
+        }
+    }
+
+    @GetMapping("/pegawai/delete/{noPegawai}")
+    public String deletePegawai(
+            @PathVariable Long noPegawai,
+            Model model
+    ) {
+        PegawaiModel pegawai = pegawaiService.findByNoPegawai(noPegawai);
+        if (LocalTime.now().isAfter(pegawai.getCabang().getWaktuTutup())
+                || LocalTime.now().isBefore(pegawai.getCabang().getWaktuBuka())) {
+
+            pegawaiService.deletePegawai(pegawai);
+            model.addAttribute("pegawai", pegawai);
+            return "delete-pegawai";
+        }
+        else {
+            return "error-cabang-buka";
+        }
+
+    }
+
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Controller
@@ -75,4 +76,35 @@ public class CabangController {
         model.addAttribute("noCabang", cabang.getNoCabang());
         return "update-cabang";
     }
+
+    @GetMapping("/cabang/viewallasc")
+    public String findByOrderByNamaCabangAscList(Model model){
+        List<CabangModel> listCabang = cabangService.findByOrderByNamaCabangAscList();
+        model.addAttribute("listCabang", listCabang);
+        return "viewall-cabang";
+    }
+
+    @GetMapping("/cabang/delete/{noCabang}")
+    public String deleteCabang(
+            @PathVariable Long noCabang,
+            Model model
+    ) {
+        CabangModel cabang = cabangService.getCabangByNoCabang(noCabang);
+        if ((LocalTime.now().isAfter(cabang.getWaktuTutup())
+                || LocalTime.now().isBefore(cabang.getWaktuBuka())) && cabang.getListPegawai().isEmpty())
+        {
+            cabangService.deleteCabang(cabang);
+            model.addAttribute("cabang", cabang);
+            return "delete-cabang";
+        }
+
+        else if (!cabang.getListPegawai().isEmpty()){
+            return "error-cabang-pegawai-exist";
+        }
+
+        else {
+            return "error-cabang-buka";
+        }
+    }
+
 }
