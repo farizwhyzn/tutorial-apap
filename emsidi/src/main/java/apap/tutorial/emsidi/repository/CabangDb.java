@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface CabangDb extends JpaRepository<CabangModel, Long> {
     Optional<CabangModel> findByNoCabang(Long noCabang);
     List<CabangModel> findByOrderByNamaCabangAsc();
+    Optional<CabangModel> findByNamaCabang(String namaCabang);
 }

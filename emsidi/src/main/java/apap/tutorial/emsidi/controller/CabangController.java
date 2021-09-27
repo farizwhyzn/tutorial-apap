@@ -72,11 +72,10 @@ public class CabangController {
             @ModelAttribute CabangModel cabang,
             Model model
     ) {
-        for (CabangModel cabangCheck : cabangService.getCabangList()) {
-            if (cabangCheck.get)
-        }
-        if (cabangService.getCabangList().contains(cabang.getNamaCabang())) {
-            return "error-not-found";
+
+        if (cabangService.namaCabangCheck(cabang.getNamaCabang()) != null) {
+            model.addAttribute("namaCabang", cabang.getNamaCabang());
+            return "error-nama-cabang-exist";
         }
         else {
             cabangService.updateCabang(cabang);

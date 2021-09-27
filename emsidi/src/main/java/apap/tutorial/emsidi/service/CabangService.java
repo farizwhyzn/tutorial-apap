@@ -10,4 +10,5 @@ public interface CabangService {
     CabangModel getCabangByNoCabang(Long noCabang);
     List<CabangModel> findByOrderByNamaCabangAscList();
     void deleteCabang(CabangModel cabang);
+    CabangModel namaCabangCheck(String namaCabang);
 }
