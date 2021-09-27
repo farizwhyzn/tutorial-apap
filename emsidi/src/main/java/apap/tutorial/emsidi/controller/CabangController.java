@@ -72,9 +72,17 @@ public class CabangController {
             @ModelAttribute CabangModel cabang,
             Model model
     ) {
-        cabangService.updateCabang(cabang);
-        model.addAttribute("noCabang", cabang.getNoCabang());
-        return "update-cabang";
+        for (CabangModel cabangCheck : cabangService.getCabangList()) {
+            if (cabangCheck.get)
+        }
+        if (cabangService.getCabangList().contains(cabang.getNamaCabang())) {
+            return "error-not-found";
+        }
+        else {
+            cabangService.updateCabang(cabang);
+            model.addAttribute("noCabang", cabang.getNoCabang());
+            return "update-cabang";
+        }
     }
 
     @GetMapping("/cabang/viewallasc")
