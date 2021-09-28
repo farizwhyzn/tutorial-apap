@@ -3,6 +3,34 @@
 * **Fariz Wahyuzan Dwitilas** - *1906399511* - *A*
 
 =======
+## Tutorial 3
+1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table)
+@AllArgsConstructor: Meng-generate constructor dengan satu parameter untuk setiap field pada class
+@NoArgsConstructor : Meng-generate constructor tanpa parameter.
+@Setter dan @Getter: Meng-generate default getter dan setter secara otomatis.
+@Entity: Menandakan bahwa class merupakan sebuah entitas.
+@Table: Menentukan tabel utama dari entitas tersebut.
+
+2. Pada class CabangDB, terdapat method findByNoCabang, apakah kegunaan dari method tersebut?
+findByNoCabang digunakan untuk mencari pada database cabang dengan parameter noCabang.
+
+3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn.
+@JoinTable menyimpan id dari kedua entity yang di-join ke tabel yang berbeda, @JoinColumn menyimpan id dari entity yang di-join ke sebuah kolom baru pada tabel yang sama.
+
+
+4. Pada class PegawaiModel, digunakan anotasi @JoinColumn pada atribut cabang, apa kegunaan dari name, referencedColumnName, dan nullable dalam anotasi tersebut? dan apa perbedaan nullable dan penggunaan anotasi @NotNull?
+name: Nama dari kolom foreign key.
+referencedColumnName: Nama kolom yang di-reference oleh kolom foreign key tersebut.
+nullable: Menentukan apakah kolom foreign key dapat bernilai null.
+@NotNull dan nullable sama-sama akan mendeclare kolom menjadi not-null. Perbedaan terdapat pada tujuan penggunaan dimana @NotNull ditujukan untuk validasi data, sedangkan nullable digunakan untuk mengindikasikan spesifikasi dari database schema.
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER.
+FetchType.LAZY: Hanya menginisialisasi dan me-load data dari database yang dipanggil oleh program.
+FetchType.EAGER: Menginisialisasi dan me-load semua data yang berhubungan dengan data yang dipanggil oleh program.
+CascadeType.ALL: Mempropagasi atau meng-cascade semua operasi (PERSIST, REMOVE, REFRESH, MERGE, DETACH) dari parent entity.
+
+
+=======
 ## Tutorial 2
 1. Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut setelah menjalankan program: http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
 Kebun berhasil ditambahkan karena semua request parameter terdapat valuenya.!
