@@ -37,6 +37,9 @@
                     <input required class="form-control" type="time" name="waktuTutup" />
                     <br><br>
 
+                    <form th:action="@{/menu/add}" th:object="${cabang}" method="POST">
+
+
                     <button class="btn btn-primary" type="submit">Submit</button>
                     <a class="btn btn-primary" href="/">Cancel</a>
                 </form>

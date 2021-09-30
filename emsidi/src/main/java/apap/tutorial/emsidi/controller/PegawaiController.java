@@ -91,25 +91,18 @@ public class PegawaiController {
 
     }
 
-    @PostMapping("/pegawai/delete/")
+    @PostMapping("/pegawai/delete")
     public String deletePegawaiSubmit(
-            @RequestParam("flexCheckDefault") List<Long> deletePegawaiList,
             @ModelAttribute CabangModel cabang,
             Model model
     ){
         LocalTime now = LocalTime.now();
         if (now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())){
-            if(deletePegawaiList != null){
-                for(Long noPegawai : deletePegawaiList){
-                    pegawaiService.deletePegawai(pegawaiService.findByNoPegawai(noPegawai));
-                }
-                model.addAttribute("noCabang", cabang.getNoCabang());
-                return "delete-pegawai";
+            for (PegawaiModel pegawai: cabang.getListPegawai()) {
+                pegawaiService.deletePegawai(pegawai);
             }
-//            return "redirect:/admin/rates/prices";
-//            for (PegawaiModel pegawai: cabang.getListPegawai()) {
-//                pegawaiService.deletePegawai(pegawai);
-//            }
+            model.addAttribute("noCabang", cabang.getNoCabang());
+            return "delete-pegawai";
         }
         return "error-cabang-buka";
     }

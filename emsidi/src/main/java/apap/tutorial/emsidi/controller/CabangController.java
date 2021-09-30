@@ -53,6 +53,7 @@ public class CabangController {
 
         model.addAttribute("cabang", cabang);
         model.addAttribute("listPegawai", listPegawai);
+        model.addAttribute("listMenu", cabang.getListMenu());
 
         return "view-cabang";
     }

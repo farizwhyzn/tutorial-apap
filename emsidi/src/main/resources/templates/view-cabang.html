@@ -68,6 +68,32 @@
                     <div th:unless="*{listPegawai.size() != 0}">
                         <h2 th:text="'Tidak ada pegawai'"></h2>
                     </div>
+                <div th:if="*{listMenu.size() != 0}">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>No Menu</th>
+                            <th>Nama</th>
+                            <th>Deskripsi</th>
+                            <th>Sedang Tersedia</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="menu, iterationStatus : ${listMenu}">
+                            <td th:text="${iterationStatus.count}"></td>
+                            <td th:text="${menu.noMenu}"></td>
+                            <td th:text="${menu.namaMenu}"></td>
+                            <td th:text="${menu.deskripsiMenu}"></td>
+                            <td th:if="${menu.isAvailable} == true">TIDAK</td>
+                            <td th:if="${menu.isAvailable} == false">YA</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div th:unless="*{listMenu.size() != 0}">
+                    <h2 th:text="'Tidak ada menu'"></h2>
+                </div>
                 <br>
                 <a class="btn btn-primary" th:href="@{/pegawai/add/} + ${cabang.noCabang}">Tambah Pegawai</a>
                 </div>
