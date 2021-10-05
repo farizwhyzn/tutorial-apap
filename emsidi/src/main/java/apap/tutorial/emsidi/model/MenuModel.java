@@ -30,4 +30,9 @@ public class MenuModel implements Serializable {
 
     @ManyToMany(mappedBy = "listMenu")
     List<CabangModel> listCabang;
+
+    @NotNull
+    @Size(max = 50)
+    @Column(nullable = false)
+    private String deskripsiMenu;
 }

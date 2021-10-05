@@ -3,6 +3,17 @@
 * **Fariz Wahyuzan Dwitilas** - *1906399511* - *A*
 
 =======
+## Tutorial 4
+1. Jelaskan perbedaan th:include dan th:replace! 
+th:include akan memasukkan fragment ke dalam sebuah tag html, sedangkan th:replace akan mengganti tag html dengan tag fragment.
+
+2. Jelaskan apa fungsi dari th:object! 
+th:object adalah tag yang digunakan untuk menampung sebuah obyek model.
+
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+Pada penggunaan th:object, * digunakan untuk menstore object, $ digunakan untuk mengambil sebuah value dari object *. Jika pada suatu penggunaan th:object misal *{menu}, maka dalam membuat th:field tidak perlu lagi menggunakan nama object dari value yang ingin diambil. Contoh: ${menu.namaMenu} menjadi ${namaMenu} dengan penggunaan *.
+
+=======
 ## Tutorial 3
 1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table)
 @AllArgsConstructor: Meng-generate constructor dengan satu parameter untuk setiap field pada class

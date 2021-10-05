@@ -7,13 +7,11 @@ import apap.tutorial.emsidi.service.PegawaiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @Controller
 public class PegawaiController {
@@ -93,4 +91,19 @@ public class PegawaiController {
 
     }
 
+    @PostMapping("/pegawai/delete")
+    public String deletePegawaiSubmit(
+            @ModelAttribute CabangModel cabang,
+            Model model
+    ){
+        LocalTime now = LocalTime.now();
+        if (now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())){
+            for (PegawaiModel pegawai: cabang.getListPegawai()) {
+                pegawaiService.deletePegawai(pegawai);
+            }
+            model.addAttribute("noCabang", cabang.getNoCabang());
+            return "delete-pegawai";
+        }
+        return "error-cabang-buka";
+    }
 }
