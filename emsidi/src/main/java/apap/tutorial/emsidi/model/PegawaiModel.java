@@ -1,5 +1,6 @@
 package apap.tutorial.emsidi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 @Setter @Getter
 @Entity
 @Table(name = "pegawai")
+@JsonIgnoreProperties(value = {"cabang"}, allowSetters = true)
 public class PegawaiModel implements Serializable {
 
     @Id
@@ -31,6 +33,10 @@ public class PegawaiModel implements Serializable {
     @NotNull
     @Column(name = "jenis_kelamin", nullable = false)
     private String jenisKelamin;
+
+    @NotNull
+    @Column(name = "umur", nullable = false)
+    private String umur;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "noCabang", referencedColumnName = "noCabang", nullable = false)
