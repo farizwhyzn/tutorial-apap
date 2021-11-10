@@ -7,12 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
-import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
-import java.util.HashMap;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -78,6 +76,13 @@ public class PegawaiRestController {
 
     @GetMapping(value = "/pegawai/umur/{noPegawai}")
     private PegawaiModel getUmurPegawai(@PathVariable("noPegawai") Long noPegawai) {
+        PegawaiModel pegawai = pegawaiRestService.getPegawaiByNoPegawai(noPegawai);
+        LocalTime now = LocalTime.now();
+        if ((now.isAfter((pegawai.getCabang().getWaktuBuka())) && now.isBefore((pegawai.getCabang().getWaktuTutup())))){
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Cabang is still open!"
+            );
+        }
         return pegawaiRestService.getUmurPegawai(noPegawai);
     }
 

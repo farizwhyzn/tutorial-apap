@@ -60,8 +60,7 @@ public class PegawaiRestServiceImpl implements PegawaiRestService{
         PegawaiModel pegawai = getPegawaiByNoPegawai(noPegawai);
         CabangModel cabang = pegawai.getCabang();
 
-        if ((now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup()))
-                && cabang.getListPegawai().isEmpty()) {
+        if ((now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup()))) {
             pegawaiDb.delete(pegawai);
         } else {
             throw new UnsupportedOperationException();
