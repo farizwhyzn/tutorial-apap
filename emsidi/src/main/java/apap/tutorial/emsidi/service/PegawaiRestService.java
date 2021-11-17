@@ -11,4 +11,5 @@ public interface PegawaiRestService {
     PegawaiModel updatePegawai(Long noPegawai, PegawaiModel pegawaiUpdate);
     void deletePegawai(Long noPegawai);
     PegawaiModel getUmurPegawai(Long noPegawai);
+    List<PegawaiModel> retrieveListPegawaiByJenisKelamin(String jenisKelamin);
 }

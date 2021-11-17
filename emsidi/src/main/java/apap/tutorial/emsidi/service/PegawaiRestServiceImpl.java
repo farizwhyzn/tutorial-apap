@@ -76,4 +76,9 @@ public class PegawaiRestServiceImpl implements PegawaiRestService{
         pegawai.setUmur(hashMap.get("age").toString());
         return pegawaiDb.save(pegawai);
     }
+
+    @Override
+    public List<PegawaiModel> retrieveListPegawaiByJenisKelamin(String jenisKelamin) {
+        return pegawaiDb.findByJenisKelamin(jenisKelamin);
+    }
 }

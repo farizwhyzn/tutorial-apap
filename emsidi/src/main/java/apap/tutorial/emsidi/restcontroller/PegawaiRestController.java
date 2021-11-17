@@ -86,4 +86,15 @@ public class PegawaiRestController {
         return pegawaiRestService.getUmurPegawai(noPegawai);
     }
 
+    @GetMapping(value = "/pegawai/jenisKelamin/{jenisKelamin}")
+    private List<PegawaiModel> retrievePegawaiByJenisKelamin(@PathVariable("jenisKelamin") String jenisKelamin) {
+        try {
+            return pegawaiRestService.retrieveListPegawaiByJenisKelamin(jenisKelamin);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Pegawai berjenis kelamin " + String.valueOf(jenisKelamin) + " Not Found."
+            );
+        }
+    }
+
 }
