@@ -43,10 +43,24 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    private String addUserSubmit(@ModelAttribute UserModel user, Model model) {
-        userService.addUser(user);
-        model.addAttribute("user", user);
-        return "redirect:/";
+    private String addUserSubmit(@ModelAttribute UserModel user, final HttpServletRequest req, Model model) {
+        String email = req.getParameter("email");
+        boolean emailFound = false;
+        for (UserModel userList: userService.getListUser()
+             ) {
+            if (userList.getEmail().equals(email)) {
+                emailFound = true;
+                break;
+            }
+        }
+        if (emailFound) {
+            return "error-email";
+        }
+        else {
+            userService.addUser(user);
+            model.addAttribute("user", user);
+            return "redirect:/";
+        }
     }
 
     @GetMapping(value = "/viewall")
