@@ -3,6 +3,39 @@
 * **Fariz Wahyuzan Dwitilas** - *1906399511* - *A*
 
 =======
+## Tutorial 7
+1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+[1.1](https://user-images.githubusercontent.com/90312743/143258669-3ffd146f-fa6d-4283-b8b3-9bffc962a464.jpg)
+[1.2](https://user-images.githubusercontent.com/90312743/143258695-ec0cf1b2-6820-49ba-8743-e1a4551cc38a.jpg)
+[1.3](https://user-images.githubusercontent.com/90312743/143258726-a59122ce-f5e9-46bf-845d-727e804cdc5d.jpg)
+[1.4](https://user-images.githubusercontent.com/90312743/143258757-ee68de63-b5c6-497a-a250-c5bc8b72f550.jpg)
+Pada soal nomor 1, untuk membuat item dihapus sesuai dengan yang kita klik, saya melakukan update []cartItems yang berisi semua item pada cart minus item yang akan dihapus, lalu tombol keranjang akan muncul dengan melakukan set .inCart = false.
+
+[2.1](https://user-images.githubusercontent.com/90312743/143260380-976235f2-fde1-41e7-ac70-7e03d3e9b167.png)
+[2.2](https://user-images.githubusercontent.com/90312743/143260395-dcecdecf-a757-4ff6-ad47-4495003e8396.png)
+[2.3](https://user-images.githubusercontent.com/90312743/143260442-b278bb5c-3aca-453d-8ed1-97b535f3d56c.png)
+[2.4](https://user-images.githubusercontent.com/90312743/143260459-635e4298-ff6f-4fd1-9e6d-585683986a4a.png)
+Pada nomor 2, update balance dilakukan pada saat melakukan handleAddItemToCart dan handleDeleteItemFromCart, dengan masing-masing mengurangi dan menambah this.state.balance dengan newItem.price.
+
+[3.1](https://user-images.githubusercontent.com/90312743/143260513-0213ee28-a906-4b55-bec0-6f60020c587a.png)
+[3.2](https://user-images.githubusercontent.com/90312743/143260543-d09c4215-2693-4108-87a9-f78be4e2ebe1.png)
+Pada nomor 3, saya melakukan handling balance setelah tombol dipencet dan handleAddItemToCart dieksekusi, sebelum updateShopItem dieksekusi. Handling dilakukan dengan mengecek apakah this.state.balance dikurangi dengan price item (newItem.price) kurang dari nol. Jika iya, alert akan dikeluarkan. Jika lebih sama dengan nol, state []cartItems akan diupdate dan dilakukan updateShopItem. 
+
+
+2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
+Props adalah variabel yang berasal dari luar atau parent class, dimana props biasanya digunakan untuk komunikasi data dari parent ke child component, state adalah variabel yang dibuat dalam suatu class, dan tidak dapat di akses dari component lainnya.
+
+3. Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam React? sebutkan alasannya.
+Ya, karena kode yang dihasilkan tidak akan terlalu kompleks/panjang dengan dipecah-pecah menggunakan komponen-komponen tersebut, komponen juga lebih reusable untuk digunakan.
+
+4. Apa perbedaan class component dan functional component?
+Functional component: Plain JavaScript function, menerima props sebagai argumen, mereturn react element, tidak menggunakan method render().
+Class component: Memerlukan extend react, menggunakan fungsi render() yang mereturn react element.
+
+5. Dalam react, apakah perbedaan component dan element?
+Elements merupakan objek yang di-return dari react component. Elements merupakan representasi objek dari sebuah node DOM, sedangkan components adalah sebuah class dengan fungsi render() atau sebuah stateless functional component. Components menerima props sebagai input dan mereturn element tree.
+
+=======
 ## Tutorial 5
 1. Apa itu Postman? Apa kegunaannya? 
 Postman adalah aplikasi REST Client untuk melakukan uji coba REST API. Postman memiliki banyak fitur yang membantu dalam proses development API, seperti Collection, Environment, Response, Script Test, Automated Test (Runner), dan Mock Server yang dibuat menggunakan fitur “example response” yang dapat diakses dari internet layaknya API yang sudah di implementasikan dan di deploy ke server.
