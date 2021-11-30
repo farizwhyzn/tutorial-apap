@@ -48,6 +48,11 @@ export default class Home extends React.Component {
 
     };
 
+    handleDeleteAllItem = () => {
+        const newItems = [];
+        this.setState({ cartItems: newItems, balance: 120 })
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -75,6 +80,8 @@ export default class Home extends React.Component {
                     (this is a <strong>class-based</strong> application)
                 </p>
                 <p className="text-center text-primary">Your Balance: <b> {this.state.balance}</b> k</p>
+                <button onClick={this.handleDeleteAllItem}>Delete All</button>
+
                 <div className="container pt-3">
                     <div className="row mt-3">
                         {!this.state.cartHidden ? (
