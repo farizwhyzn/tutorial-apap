@@ -49,8 +49,12 @@ export default class Home extends React.Component {
     };
 
     handleDeleteAllItem = () => {
-        const newItems = [];
-        this.setState({ cartItems: newItems, balance: 120 })
+        const newItems = [...this.state.cartItems];
+        for(let i=0; i< newItems.length; i++){
+            this.updateShopItem(newItems[i], false)
+        }
+        const emptyItems = [];
+        this.setState({ cartItems: emptyItems, balance: 120 })
     }
 
     constructor(props) {
