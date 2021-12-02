@@ -3,6 +3,28 @@
 * **Fariz Wahyuzan Dwitilas** - *1906399511* - *A*
 
 =======
+## Tutorial 8 The Last Tutorial
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian
+melakukan langkah - langkah tersebut?
+2. Jelaskan fungsi dari async dan await!
+async berfungsi untuk mengubah fungsi menjadi asynchronous atau bersifat non-blocking, await  berfungsi untuk menunda eksekusi sebuah kode sampai proses asynchronous berhasil.
+3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle
+pada pertanyaan ini.
+![1](https://user-images.githubusercontent.com/90312743/144456004-051bc592-26a8-4d7d-955a-efa264ae33f4.jpg)
+![2](https://user-images.githubusercontent.com/90312743/144456020-a4c9fab6-dea9-413e-a6a3-60f2c7c822ef.jpg)
+![3](https://user-images.githubusercontent.com/90312743/144456028-6c49539d-8677-4b70-a02f-fa6ef64db6a2.jpg)
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate,
+componentDidUpdate, componentWillReceiveProps, componentWillUnmount.
+Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja
+yang biasanya menggunakan lifecycle method tersebut”.
+omponentDidMount: Dipanggil setelah fungsi render dieksekusi, biasanya digunakan untuk manipulasi DOM atau operasi ajax. Seluruh operasi DOM terjadi di fase ini, bukan pada  method render.
+ShouldComponentUpdate: Dipanggil sebelum render, memungkinkan untuk mengatur apakah re-rendering diperlukan atau tidak yang salah satunya dapat dilakukan dengan mengakses props dan state yang sekarang. Fungsi harus me-return boolean. Jika fungsi mengembalikan nilai true, component akan dirender ulang, jika false, component tidak dirender ulang. Fungsi ini memiliki 2 parameter, yaitu nextProps dan nextState.
+componentDidUpdate: Dipanggil setelah fungsi render, digunakan saat melakukan interaksi dengan environment non-React seperti HTTP Request. Dapat digunakan untuk melakukan operasi DOM setelah data telah diperbarui.
+ComponentWillReceiveProps: Dipanggil ketika props telah berubah dan tidak pada saat rendering awal, dapat membandingkan props yang ada dengan yang baru dan memeriksa apakah terdapat perubahan terhadap props tersebut. Memungkinkan perubahan state berdasar pada props yang sekarang dan props baru, tanpa memicu rendering lagi.
+componentWillUnmount: Dipanggil ketika komponen telah dibuang dari DOM, dapat digunakan ketika aksi-aksi yang berhubungan dengan pembersihan diperlukan, semisal membuang timer yang sebelumnya didefinisikan di componentDidMount, membatalkan network request dan menghilangkan event listener.
+
+=======
 ## Tutorial 7
 1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
 [1.1](https://user-images.githubusercontent.com/90312743/143258669-3ffd146f-fa6d-4283-b8b3-9bffc962a464.jpg)
