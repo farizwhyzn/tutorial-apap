@@ -4,7 +4,6 @@ import classes from "./styles.module.css";
 import APIConfig from "../../api/APIConfig";
 import Button from "../../components/button";
 import Modal from "../../components/modal";
-import SearchBar from "../../components/searchBar";
 
 
 class ItemList extends Component {
@@ -29,6 +28,8 @@ class ItemList extends Component {
     this.handleEditItem = this.handleEditItem.bind(this);
     this.handleSubmitEditItem = this.handleSubmitEditItem.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleSearchItem = this.handleSearchItem.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
 }
 
 componentDidMount() {
@@ -149,29 +150,19 @@ async handleSearchItem(event) {
     this.setState({ items: data.result });
 }
 
-// async handleSearchItem(event) {
-//     event.preventDefault();
-//     try {
-//         const { data } = await APIConfig.get(`/item/?title=${this.state.title}`);
-//         this.setState({ items: data.result });
-//         this.setState({ title: "" });
-//     } catch (error) {
-//         console.log(error);
-//         alert("Oops terjadi masalah pada server");
-//     }
-// }
-
 render() {
     return (
     <div className={classes.itemList}>
         <h1 className={classes.title}>
             All Items
         </h1>
-        <SearchBar
-                    action={this.handleChangeField}
-                    submit={this.handleSearchItem}
-                    namaItem={this.state.title}
-        ></SearchBar>
+        <input
+            className={classes.textField}
+            type="text"
+            placeholder="Search"
+            name="search"
+            onChange={this.handleSearchItem}
+            />
         <Button action={this.handleAddItem}>
             Add Item
         </Button>
